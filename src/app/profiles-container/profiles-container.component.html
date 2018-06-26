@@ -1,0 +1,24 @@
+<section id="profiles-container">
+  <h2>Profiles</h2>
+  <ul id="profiles">
+    <li *ngFor="let pro of profiles">
+      <div class="profile-card">
+        <header class="profile-header"
+          (click)="pro.toggle()">
+          <img src="{{pro.image}}">
+          <h2>{{pro.name}}</h2>
+        </header>
+        <section 
+          class="skills-container"
+          [ngClass]="{ hidden: !selected }">
+          <h4>Skills</h4>
+          <ul class="skills-list">
+            <li *ngFor="let skill of pro.skills">
+              {{skill}}
+            </li>
+          </ul>
+        </section>
+      </div>
+    </li>
+  </ul>
+</section>
