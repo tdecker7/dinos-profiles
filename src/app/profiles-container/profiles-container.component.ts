@@ -22,9 +22,12 @@ export class ProfilesContainerComponent implements OnInit {
     this.profilesService.getProfiles()
       .subscribe(profiles => this.profiles = profiles);
   }
-  toggle(): void {
-    console.log(this.selected);
+  toggle(event): void {
     this.selected = !this.selected;
+    if (this.selected) {
+      event.target.parentNode.nextElementSibling.classList.remove('hidden');
+    } else {
+      event.target.parentNode.nextElementSibling.classList.add('hidden');
+    }
   }
-
 }
